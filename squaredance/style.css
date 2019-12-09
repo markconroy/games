@@ -1,0 +1,22 @@
+.dancer {
+  height: 20px;
+  display: inline-block;
+  width: 20px;
+  background-color: rebeccapurple;
+  position: relative;
+  transition: .3s;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.partner {
+  height: 10px;
+  width: 10px;
+  display: inline-block;
+  background-color: green;
+  position: relative;
+  left: 33%;
+  top: 160px;
+}

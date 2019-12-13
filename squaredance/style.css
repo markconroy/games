@@ -3,7 +3,7 @@
   display: inline-block;
   width: 20px;
   background-color: rebeccapurple;
-  position: relative;
+  position: absolute;
   transition: .3s;
   top: 0;
   bottom: 0;

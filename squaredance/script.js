@@ -1,24 +1,38 @@
-const dancer = document.querySelector('.dancer');
-
-function dance(e) {
-  const right = 39;
-  const left = 37;
-  const down = 40;
-  const up = 38;
-
-  if (e.keyCode === right) {
-    dancer.style.left = dancer.style.left + 10 + 'px';
-  }
-  if (e.keyCode === left) {
-    dancer.style.right = dancer.style.right + 10 + 'px';
-  }
-  if (e.keyCode === up) {
-    dancer.style.bottom = dancer.style.bottom + 10 + 'px';
-  }
-  if (e.keyCode === down) {
-    dancer.style.top = dancer.style.top + 10 + 'px';
-  }
-  
+function movePosition(item, positionX, positionY) {
+  const dancer = document.querySelector(item);
+  dancer.style.left = positionX + 'px';
+  dancer.style.top = positionY + 'px';
 }
 
-document.addEventListener('keyup', dance);
+function keyPress(e) {
+  const dancerPosition = document.querySelector('.dancer').getBoundingClientRect();
+  let keyPressed = e.code;
+
+  const moveRight = 'ArrowRight';
+  const moveLeft = 'ArrowLeft';
+  const moveDown = 'ArrowDown';
+  const moveUp = 'ArrowUp';
+ 
+  let left = parseInt(dancerPosition.left, 10);
+  let top = parseInt(dancerPosition.top, 10)
+    
+  switch (keyPressed) {
+    case (moveLeft):
+      movePosition('#dancer', left -10,  top);
+      break;
+
+    case (moveRight):
+      movePosition('#dancer', left + 10,  top);
+      break;
+
+    case (moveUp):
+      movePosition('#dancer', left,  top - 10);
+      break;
+
+    case (moveDown):
+      movePosition('#dancer', left,  top + 10);
+      break;
+  }
+}
+
+document.addEventListener('keydown', keyPress);
